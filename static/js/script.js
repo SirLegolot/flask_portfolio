@@ -17,9 +17,9 @@
  */
 function addRandomFact() {
   const facts =
-      ['My favorite color is red!', 
-       'I used to tap dance!', 
-       'I still love building with Legos!', 
+      ['My favorite color is red!',
+       'I used to tap dance!',
+       'I still love building with Legos!',
        'My favorite movie is Intersellar!',
        'In my free time, I love to play table tennis!'];
 
@@ -44,7 +44,7 @@ $(window).scroll(function() {
 $(document).ready(function() {
   $("#button").click(function(event) {
     // Stops the default action when clicking a button.
-    event.preventDefault(); 
+    event.preventDefault();
     $("html, body").animate({ scrollTop: 0 }, "slow");
   });
 });
@@ -72,7 +72,7 @@ function getComments() {
   const queryString = "/data?numComments=" + displayCount +
                       "&sortOrder=" + sortOrder;
 
-  fetch(queryString).then(response => response.json()).then(commentList => { 
+  fetch(queryString).then(response => response.json()).then(commentList => {
     // Converts the list of comment objects into an html list.
     const commentThread = document.getElementById('commentThread');
     commentThread.innerText = '';
@@ -92,12 +92,12 @@ function createListElement(comment) {
   // Comment content contains an avatar, header, and paragraph text.
   const img = document.createElement('img');
   img.setAttribute('class', 'avatar');
-  img.setAttribute('src', '/images/profile.jpg');
+  img.setAttribute('src', '/static/img/profile.jpg');
   img.setAttribute('width', '40px');
   img.setAttribute('height', '40px');
   img.setAttribute('alt', 'profile_photo');
   const header = document.createElement('header');
-  header.innerHTML = "<span class='userlink'>" + comment.username + "</span>" + 
+  header.innerHTML = "<span class='userlink'>" + comment.username + "</span>" +
                      " - <span class='pubdate'>" + comment.date + "</span>"
   const p = document.createElement('p');
   p.innerText = comment.content;
